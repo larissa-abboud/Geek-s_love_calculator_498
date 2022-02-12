@@ -19,12 +19,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dropdown = findViewById(R.id.lang);
+        name = (EditText) findViewById(R.id.name);
+        result = (TextView) findViewById(R.id.result);
         String[] options = new String[]{"Java", "C", "C++", "Python", "HTML","css","javascript"};
 
         ArrayAdapter <String> languages = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, options);
 
         dropdown.setAdapter(languages);
     }
+
 
 
     /**Spinner spinner = (Spinner) findViewById(R.id.spinner);
