@@ -3,10 +3,12 @@ package com.lausp.geek_love_calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,14 +40,42 @@ public class MainActivity extends AppCompatActivity {
         //dropdown.setOnItemSelectedListener( this);
 
     }
-    public void calculate(View view){
+    public void calculate(View view) { // calculates normally ,gives a button to show results ,reset image show reuslt
         String text = dropdown.getSelectedItem().toString();
-        if (text.equalsIgnoreCase("JAVA")){
+        //no need for options  just claculate and set in text view
+        if (text.equalsIgnoreCase("JAVA")) {
             Toast.makeText(this, "selected", Toast.LENGTH_SHORT).show();
             //show java logo
             //repeat for others (use tic tac toe method rather than  alpha)
+        } else if (text.equalsIgnoreCase("C")) {
+            Toast.makeText(this, "selected", Toast.LENGTH_SHORT).show();
+
+
+
         }
+
     }
+    public void show_results(View view){
+        String text = dropdown.getSelectedItem().toString();
+        ImageView logo = (ImageView) view;
+        //logo.setTranslationY(-1500);
+        if (text.equalsIgnoreCase("JAVA")) {
+            Toast.makeText(this, "selected", Toast.LENGTH_SHORT).show();
+            logo.setImageResource(R.drawable.java);
+
+        } else if (text.equalsIgnoreCase("C")) {
+            Toast.makeText(this, "selected", Toast.LENGTH_SHORT).show();
+            logo.setImageResource(R.drawable.c);
+
+
+        }
+
+    }
+/**
+ *  fix logo sizes
+ *  add random amount
+ *  reset settings
+ *  ***/
 
     /**public void Item_Selected(View view) {
      String text = dropdown.getSelectedItem().toString();
@@ -58,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
      }
 
-
+     app:srcCompat="@drawable/java"
 
 
 
@@ -95,5 +125,6 @@ public class MainActivity extends AppCompatActivity {
      // Another interface callback
      }
      }*/
+
 
 }
