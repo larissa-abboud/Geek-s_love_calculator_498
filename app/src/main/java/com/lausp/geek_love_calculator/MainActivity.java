@@ -18,11 +18,13 @@ public class MainActivity extends AppCompatActivity {
      String[] options = new String[]{"Java", "C", "C++", "Python", "HTML","css","javascript"};
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dropdown = findViewById(R.id.lang);
+        dropdown =  findViewById(R.id.lang);
         name = (EditText) findViewById(R.id.name);
         result = (TextView) findViewById(R.id.result);
        // String[] options = new String[]{"Java", "C", "C++", "Python", "HTML","css","javascript"};
@@ -33,25 +35,28 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter <String> languages = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, options);
         languages.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown.setAdapter(languages);
-        //dropdown.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        //dropdown.setOnItemSelectedListener( this);
 
     }
-
-
-       /** public void Item_Selected( View view) {
-            String text = dropdown.getSelectedItem().toString();
-            switch (text) {
-                case "JAVA":
-                    Toast.makeText(getApplicationContext(), "Spinner item java!", Toast.LENGTH_SHORT).show();
-                    break;
-                case "python":
-                    //Toast.makeText(parent.getContext(), "Spinner item 2!", Toast.LENGTH_SHORT).show();
-                    break;
-                case "c":
-                    //Toast.makeText(parent.getContext(), "Spinner item 3!", Toast.LENGTH_SHORT).show();
-                    break;
-            }
+    public void calculate(View view){
+        String text = dropdown.getSelectedItem().toString();
+        if (text.equalsIgnoreCase("JAVA")){
+            Toast.makeText(this, "selected", Toast.LENGTH_SHORT).show();
+            //show java logo
+            //repeat for others (use tic tac toe method rather than  alpha)
         }
+    }
+
+    /**public void Item_Selected(View view) {
+     String text = dropdown.getSelectedItem().toString();
+     switch (text) {
+     case "JAVA":
+        Toast.makeText(getApplicationContext(), "Spinner item java!", Toast.LENGTH_SHORT).show();
+     break;
+
+                }
+
+     }
 
 
 
@@ -80,13 +85,13 @@ public class MainActivity extends AppCompatActivity {
      public class SpinnerActivity extends Activity implements OnItemSelectedListener {
      ...
 
-     public void onItemSelected(AdapterView<?> parent, View view,
+     public void onItemSelected(AdapterView parent, View view,
      int pos, long id) {
      // An item was selected. You can retrieve the selected item using
      // parent.getItemAtPosition(pos)
      }
 
-     public void onNothingSelected(AdapterView<?> parent) {
+     public void onNothingSelected(AdapterView parent) {
      // Another interface callback
      }
      }*/
