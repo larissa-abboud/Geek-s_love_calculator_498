@@ -3,15 +3,19 @@ package com.lausp.geek_love_calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Spinner dropdown;
     EditText name;
     TextView result;
+     String[] options = new String[]{"Java", "C", "C++", "Python", "HTML","css","javascript"};
 
 
     @Override
@@ -21,13 +25,40 @@ public class MainActivity extends AppCompatActivity {
         dropdown = findViewById(R.id.lang);
         name = (EditText) findViewById(R.id.name);
         result = (TextView) findViewById(R.id.result);
-        String[] options = new String[]{"Java", "C", "C++", "Python", "HTML","css","javascript"};
+       // String[] options = new String[]{"Java", "C", "C++", "Python", "HTML","css","javascript"};
+
+
+
 
         ArrayAdapter <String> languages = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, options);
-
+        languages.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown.setAdapter(languages);
+        //dropdown.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+
     }
-    /*  logo of the language chosen by the user next to the score as soon as it is calculated.
+
+
+       /** public void Item_Selected( View view) {
+            String text = dropdown.getSelectedItem().toString();
+            switch (text) {
+                case "JAVA":
+                    Toast.makeText(getApplicationContext(), "Spinner item java!", Toast.LENGTH_SHORT).show();
+                    break;
+                case "python":
+                    //Toast.makeText(parent.getContext(), "Spinner item 2!", Toast.LENGTH_SHORT).show();
+                    break;
+                case "c":
+                    //Toast.makeText(parent.getContext(), "Spinner item 3!", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+
+
+
+
+
+    /*
+
     * */
 
 /* on click the button :
