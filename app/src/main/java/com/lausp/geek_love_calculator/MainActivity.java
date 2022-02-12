@@ -27,7 +27,14 @@ public class MainActivity extends AppCompatActivity {
 
         dropdown.setAdapter(languages);
     }
+    /*  logo of the language chosen by the user next to the score as soon as it is calculated.
+    * */
 
+/* on click the button :
+* give randome result and print to text view,
+* show loading heart
+* after fiew option , reset button , after 6 automatic reset
+* */
 
 
     /**Spinner spinner = (Spinner) findViewById(R.id.spinner);
