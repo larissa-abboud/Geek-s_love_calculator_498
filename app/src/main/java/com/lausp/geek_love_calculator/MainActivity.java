@@ -54,15 +54,16 @@ public class MainActivity extends AppCompatActivity {
     }
     public void calculate(View view) { // calculates normally ,gives a button to show results ,reset image show reuslt
         saved_counter ++;
-       show_results.setText("click to show results");
-        result.setText("");
-        heart.setImageResource(R.drawable.heart);
+        reset_result(view);
+      // show_results.setText("click to show results");
+      //  result.setText("");
+        //heart.setImageResource(R.drawable.heart);
         random = new Random().nextInt((max - min) );
 
         String text = dropdown.getSelectedItem().toString();
 
         //no need for options  just claculate and set in text view
-        if (text.equalsIgnoreCase("JAVA")) {
+        /**if (text.equalsIgnoreCase("JAVA")) {
             Toast.makeText(this, "selected Java", Toast.LENGTH_SHORT).show();
 
 
@@ -73,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        }
+        }**/
+
 
     }
     public void show_results(View view){
@@ -88,7 +90,38 @@ public class MainActivity extends AppCompatActivity {
             logo.setImageResource(R.drawable.java);
             result.setText(amount + " %");
 
-        } else if (text.equalsIgnoreCase("C")) {
+        } else if (text.equalsIgnoreCase("C++")) {
+
+            logo.setImageResource(R.drawable.cplus);
+            result.setText(amount + " %");
+
+
+        }else if (text.equalsIgnoreCase("css")) {
+
+            logo.setImageResource(R.drawable.css);
+            result.setText(amount + " %");
+
+
+        }else if (text.equalsIgnoreCase("javascript")) {
+
+            logo.setImageResource(R.drawable.javascript);
+            result.setText(amount + " %");
+
+
+        }else if (text.equalsIgnoreCase("HTML")) {
+
+            logo.setImageResource(R.drawable.html);
+            result.setText(amount + " %");
+
+
+        }
+        else if (text.equalsIgnoreCase("Python")) {
+
+            logo.setImageResource(R.drawable.python);
+            result.setText(amount + " %");
+
+
+        }else if (text.equalsIgnoreCase("C")) {
 
             logo.setImageResource(R.drawable.c);
             result.setText(amount + " %");
@@ -101,6 +134,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+    public void reset_result(View view){
+        show_results.setText("click to show results");
+        result.setText("");
+        heart.setImageResource(R.drawable.heart);
     }
 /**
  *  fix logo sizes
