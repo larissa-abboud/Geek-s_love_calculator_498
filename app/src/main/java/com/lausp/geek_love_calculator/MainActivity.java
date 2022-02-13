@@ -13,11 +13,21 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
     Spinner dropdown;
     EditText name;
     TextView result;
      String[] options = new String[]{"Java", "C", "C++", "Python", "HTML","css","javascript"};
+     TextView show_results;
+    int min = 0;
+    int max = 100;
+   int random;
+   ImageView heart ;
+   int saved_counter;
+
+
 
 
 
@@ -30,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         name = (EditText) findViewById(R.id.name);
         result = (TextView) findViewById(R.id.result);
        // String[] options = new String[]{"Java", "C", "C++", "Python", "HTML","css","javascript"};
+        show_results = (TextView) findViewById(R.id.textView3);
 
+        heart = (ImageView) findViewById(R.id.show_r);
 
 
 
@@ -41,14 +53,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void calculate(View view) { // calculates normally ,gives a button to show results ,reset image show reuslt
+        saved_counter ++;
+       show_results.setText("click to show results");
+        result.setText("");
+        heart.setImageResource(R.drawable.heart);
+        random = new Random().nextInt((max - min) );
+
         String text = dropdown.getSelectedItem().toString();
+
         //no need for options  just claculate and set in text view
         if (text.equalsIgnoreCase("JAVA")) {
-            Toast.makeText(this, "selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "selected Java", Toast.LENGTH_SHORT).show();
+
+
             //show java logo
             //repeat for others (use tic tac toe method rather than  alpha)
         } else if (text.equalsIgnoreCase("C")) {
-            Toast.makeText(this, "selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "selected C", Toast.LENGTH_SHORT).show();
 
 
 
@@ -56,19 +77,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void show_results(View view){
+
+        show_results.setText("");
         String text = dropdown.getSelectedItem().toString();
         ImageView logo = (ImageView) view;
+        String amount  = String.valueOf(random);
         //logo.setTranslationY(-1500);
         if (text.equalsIgnoreCase("JAVA")) {
-            Toast.makeText(this, "selected", Toast.LENGTH_SHORT).show();
+
             logo.setImageResource(R.drawable.java);
+            result.setText(amount + " %");
 
         } else if (text.equalsIgnoreCase("C")) {
-            Toast.makeText(this, "selected", Toast.LENGTH_SHORT).show();
+
             logo.setImageResource(R.drawable.c);
+            result.setText(amount + " %");
 
 
         }
+
+        if (saved_counter >= 3){
+            //show reset button
+        }
+
 
     }
 /**
