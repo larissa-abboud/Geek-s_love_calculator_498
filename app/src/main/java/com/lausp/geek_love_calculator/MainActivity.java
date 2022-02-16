@@ -64,26 +64,12 @@ public class MainActivity extends AppCompatActivity {
     public void calculate(View view) { // calculates normally ,gives a button to show results ,reset image show reuslt
         saved_counter ++;
         reset_result(view);
-      // show_results.setText("click to show results");
-      //  result.setText("");
-        //heart.setImageResource(R.drawable.heart);
+
         random = new Random().nextInt((max - min) );
 
         String text = dropdown.getSelectedItem().toString();
 
-        //no need for options  just claculate and set in text view
-        /**if (text.equalsIgnoreCase("JAVA")) {
-            Toast.makeText(this, "selected Java", Toast.LENGTH_SHORT).show();
 
-
-            //show java logo
-            //repeat for others (use tic tac toe method rather than  alpha)
-        } else if (text.equalsIgnoreCase("C")) {
-            Toast.makeText(this, "selected C", Toast.LENGTH_SHORT).show();
-
-
-
-        }**/
 
 
     }
@@ -109,28 +95,28 @@ public class MainActivity extends AppCompatActivity {
 
             logo.setImageResource(R.drawable.cplus);
             result.setText(amount + " %");
-            texted =  "c++ " + name.getText().toString() + " = " + amount + " % ";
+            texted =  text_list +" x  "+ name.getText().toString() + " = " + amount + " % ";
 
 
         }else if (text_list.equalsIgnoreCase("css")) {
 
             logo.setImageResource(R.drawable.css);
             result.setText(amount + " %");
-            texted =  "css " + name.getText().toString() + " = " + amount + " % ";
+            texted =  text_list +" x  "+ name.getText().toString() + " = " + amount + " % ";
 
 
         }else if (text_list.equalsIgnoreCase("javascript")) {
 
             logo.setImageResource(R.drawable.javascript);
             result.setText(amount + " %");
-            texted =  "Javascript " + name.getText().toString() + " = " + amount + " % ";
+            texted =  text_list +" x  "+ name.getText().toString() + " = " + amount + " % ";
 
 
         }else if (text_list.equalsIgnoreCase("HTML")) {
 
             logo.setImageResource(R.drawable.html);
             result.setText(amount + " %");
-            texted =  "html " + name.getText().toString() + " = " + amount + " % ";
+            texted =  text_list +" x  "+ name.getText().toString() + " = " + amount + " % ";
 
 
         }
@@ -138,20 +124,27 @@ public class MainActivity extends AppCompatActivity {
 
             logo.setImageResource(R.drawable.python);
             result.setText(amount + " %");
-            texted =  "python " + name.getText().toString() + " = " + amount + " % ";
+            texted = text_list +" x  "+ name.getText().toString() + " = " + amount + " % ";
 
 
         }else if (text_list.equalsIgnoreCase("C")) {
 
             logo.setImageResource(R.drawable.c);
             result.setText(amount + " %");
-            texted =  "c " + name.getText().toString() + " = " + amount + " % ";
+            texted =  text_list +" x  "+ name.getText().toString() + " = " + amount + " % ";
 
 
         }logo.animate().translationYBy(1500).rotation(3600).setDuration(600);
+        if (name.getText().equals("")){
+            saved_counter = 0;text1.setText("");
+            text2.setText("");
+            text3.setText("");
 
-        if (saved_counter == 1 ){
+
+        }
+        else if (saved_counter == 1 ){
             text1.setText(texted);
+
 
         }else if(saved_counter == 2){
            text2.setText(texted);
