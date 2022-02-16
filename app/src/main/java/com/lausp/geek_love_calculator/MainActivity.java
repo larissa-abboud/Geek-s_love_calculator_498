@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
    int random;
    ImageView heart ;
    int saved_counter;
+   TextView text1 ,text2 , text3;
+    String texted;
+
 
 
 
@@ -43,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
         show_results = (TextView) findViewById(R.id.textView3);
 
         heart = (ImageView) findViewById(R.id.show_r);
+        text1 = (TextView) findViewById(R.id.show1);
+        text2 = (TextView) findViewById(R.id.show2);
+        text3 = (TextView) findViewById(R.id.show3);
+
 
 
 
@@ -81,57 +88,77 @@ public class MainActivity extends AppCompatActivity {
     public void show_results(View view){
 
         show_results.setText("");
-        String text = dropdown.getSelectedItem().toString();
+        String text_list = dropdown.getSelectedItem().toString();
         ImageView logo = (ImageView) view;
         String amount  = String.valueOf(random);
         //logo.setTranslationY(-1500);
-        if (text.equalsIgnoreCase("JAVA")) {
+        if (text_list.equalsIgnoreCase("JAVA")) {
 
             logo.setImageResource(R.drawable.java);
             result.setText(amount + " %");
+            texted =  "Java " + name.getText().toString() + " = " + amount + " % ";
 
-        } else if (text.equalsIgnoreCase("C++")) {
+
+        } else if (text_list.equalsIgnoreCase("C++")) {
 
             logo.setImageResource(R.drawable.cplus);
             result.setText(amount + " %");
+            texted =  "c++ " + name.getText().toString() + " = " + amount + " % ";
 
 
-        }else if (text.equalsIgnoreCase("css")) {
+        }else if (text_list.equalsIgnoreCase("css")) {
 
             logo.setImageResource(R.drawable.css);
             result.setText(amount + " %");
+            texted =  "css " + name.getText().toString() + " = " + amount + " % ";
 
 
-        }else if (text.equalsIgnoreCase("javascript")) {
+        }else if (text_list.equalsIgnoreCase("javascript")) {
 
             logo.setImageResource(R.drawable.javascript);
             result.setText(amount + " %");
+            texted =  "Javascript " + name.getText().toString() + " = " + amount + " % ";
 
 
-        }else if (text.equalsIgnoreCase("HTML")) {
+        }else if (text_list.equalsIgnoreCase("HTML")) {
 
             logo.setImageResource(R.drawable.html);
             result.setText(amount + " %");
+            texted =  "html " + name.getText().toString() + " = " + amount + " % ";
 
 
         }
-        else if (text.equalsIgnoreCase("Python")) {
+        else if (text_list.equalsIgnoreCase("Python")) {
 
             logo.setImageResource(R.drawable.python);
             result.setText(amount + " %");
+            texted =  "python " + name.getText().toString() + " = " + amount + " % ";
 
 
-        }else if (text.equalsIgnoreCase("C")) {
+        }else if (text_list.equalsIgnoreCase("C")) {
 
             logo.setImageResource(R.drawable.c);
             result.setText(amount + " %");
+            texted =  "c " + name.getText().toString() + " = " + amount + " % ";
 
 
         }
 
-        if (saved_counter >= 3){
-            //show reset button
+        if (saved_counter == 1 ){
+            text1.setText(texted);
+
+        }else if(saved_counter == 2){
+           text2.setText(texted);
+        }else if(saved_counter == 3){
+            text3.setText(texted);
+            //must reset
+            saved_counter =0 ;
+            text1.setText("");
+            text2.setText("");
+            text3.setText("");
         }
+
+
 
 
     }
