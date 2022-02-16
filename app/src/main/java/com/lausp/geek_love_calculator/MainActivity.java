@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     int saved_counter;
     TextView text1 ,text2 , text3;
     String texted;
+    ImageView logo;
+
 
 
 
@@ -44,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         dropdown =  findViewById(R.id.lang);
         name = (EditText) findViewById(R.id.name);
+
         result = (TextView) findViewById(R.id.result);
+
         show_results = (TextView) findViewById(R.id.textView3);
         heart = (ImageView) findViewById(R.id.show_r);
         text1 = (TextView) findViewById(R.id.show1);
@@ -82,13 +86,14 @@ public class MainActivity extends AppCompatActivity {
     public void reset_name(View view){
         name.setText("");
         result.setText("");
+        logo.setImageResource(R.drawable.cpuheart1);
     }
 
     public void show_results(View view){
 
         show_results.setText("");
         String text_list = dropdown.getSelectedItem().toString();
-        ImageView logo = (ImageView) view;
+        logo = (ImageView) view;
         String amount  = String.valueOf(random);
         logo.setTranslationY(-1500);
         logo.setTag(text_list);
