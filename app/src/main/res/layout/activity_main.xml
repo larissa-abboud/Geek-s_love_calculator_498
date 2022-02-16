@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.757"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.345" />
+        app:layout_constraintVertical_bias="0.574" />
 
     <EditText
         android:id="@+id/name"
@@ -25,6 +25,7 @@
         android:layout_height="83dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:onClick="reset_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.094"
@@ -154,7 +155,7 @@
         app:layout_constraintHorizontal_bias="0.561"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417"
+        app:layout_constraintVertical_bias="0.405"
         app:srcCompat="@drawable/cpuheart" />
 
 
