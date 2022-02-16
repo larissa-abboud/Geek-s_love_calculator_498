@@ -2,16 +2,17 @@ package com.lausp.geek_love_calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Random;
 
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner dropdown;
     EditText name;
     TextView result;
-     String[] options = new String[]{"Java", "C", "C++", "Python", "HTML","css","javascript"};
+     String[] options = new String[]{"java", "C", "C++", "Python", "HTML","css","javascript"};
      TextView show_results;
     int min = 0;
     int max = 100;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
    int saved_counter;
    TextView text1 ,text2 , text3;
     String texted;
+    Tag file_name;
 
 
 
@@ -91,12 +93,16 @@ public class MainActivity extends AppCompatActivity {
         String text_list = dropdown.getSelectedItem().toString();
         ImageView logo = (ImageView) view;
         String amount  = String.valueOf(random);
-        //logo.setTranslationY(-1500);
-        if (text_list.equalsIgnoreCase("JAVA")) {
+        logo.setTranslationY(-1500);
+        logo.setTag(text_list);
+        Log.d(logo.getTag().toString() , text_list);
+        if (text_list.equalsIgnoreCase("Java")) {
+
+
 
             logo.setImageResource(R.drawable.java);
             result.setText(amount + " %");
-            texted =  "Java " + name.getText().toString() + " = " + amount + " % ";
+            texted =  text_list +" x  "+ name.getText().toString() + " = " + amount + " % ";
 
 
         } else if (text_list.equalsIgnoreCase("C++")) {
@@ -142,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
             texted =  "c " + name.getText().toString() + " = " + amount + " % ";
 
 
-        }
+        }logo.animate().translationYBy(1500).rotation(3600).setDuration(600);
 
         if (saved_counter == 1 ){
             text1.setText(texted);
@@ -152,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
         }else if(saved_counter == 3){
             text3.setText(texted);
             //must reset
+
+        }else{
             saved_counter =0 ;
             text1.setText("");
             text2.setText("");
@@ -163,9 +171,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void reset_result(View view){
-        show_results.setText("click to show results");
+        show_results.setText(" click to show results");
         result.setText("");
-        heart.setImageResource(R.drawable.heart);
+        heart.setImageResource(R.drawable.cpuheart1);
     }
 /**
  *  fix logo sizes
