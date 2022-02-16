@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         ArrayAdapter <String> languages = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, options);
         languages.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown.setAdapter(languages);
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     public void reset_name(View view){
         name.setText("");
         result.setText("");
-        logo.setImageResource(R.drawable.cpuheart1);
+        //logo.setImageResource(R.drawable.cpuheart1);
     }
 
     public void show_results(View view){
@@ -100,12 +101,16 @@ public class MainActivity extends AppCompatActivity {
         Log.d(logo.getTag().toString() , text_list);
 
         if (text_list.equalsIgnoreCase("Java")) {
+            if (name.getText().toString().equalsIgnoreCase("")){
+                logo.setImageResource(R.drawable.cpuheart1);
+                Toast.makeText(this, "input Name", Toast.LENGTH_SHORT).show();
+            }else{
 
 
 
             logo.setImageResource(R.drawable.java);
             result.setText(amount + " %");
-            texted =  text_list +" x  "+ name.getText().toString() + " = " + amount + " % ";
+            texted =  text_list +" x  "+ name.getText().toString() + " = " + amount + " % ";}
 
 
         } else if (text_list.equalsIgnoreCase("C++")) {
@@ -151,7 +156,8 @@ public class MainActivity extends AppCompatActivity {
             texted =  text_list +" x  "+ name.getText().toString() + " = " + amount + " % ";
 
 
-        }logo.animate().translationYBy(1500).rotation(3600).setDuration(600);
+        }
+                logo.animate().translationYBy(1500).rotation(3600).setDuration(600);
 
 
 
